@@ -172,17 +172,51 @@ namespace HexKonverter
                         //Mostly getting not dividable /2 exception due to NO VALID HEXCODE -
                         txt_output.Text = "Unknown Error or no valid Hex Code!\n Please check if your input is really hexcode.";
                     }
-
-                    
-
-
-                    
-
-
-
                 }
             }
         }
+
+        private void texttobase64()
+        {
+            if (String.IsNullOrEmpty(txt_input.Text))
+            {
+
+                txt_output.Text = "Please enter something before trying to convert!";
+            }
+            else
+            {
+
+                string result = "";
+                string toConvert = txt_input.Text;
+                //toConvert = Encoding.UTF8.GetBytes(System.Convert.ToBase64String(toConvert));
+                var convertByte = System.Text.Encoding.UTF8.GetBytes(toConvert);
+                result = Convert.ToBase64String(convertByte);
+                txt_output.Text = result;
+
+            }
+        }
+
+        private void base64totext()
+        {
+            if (String.IsNullOrEmpty(txt_input.Text))
+            {
+
+                txt_output.Text = "Please enter something before trying to convert!";
+            }
+            else
+            {
+
+                string result = "";
+                string toConvert = txt_input.Text;
+                //var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+                //return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+                result = Encoding.UTF8.GetString(Convert.FromBase64String(toConvert));
+
+                txt_output.Text = result;
+
+            }
+        }
+
 
 
         //UI / Button
@@ -232,6 +266,52 @@ namespace HexKonverter
             btn_texttohex.BackColor = Color.FromArgb(46, 51, 73);
         }
 
+        private void TextToBase64_Click(object sender, EventArgs e)
+        {
+            // I love global variables, OOP..... NAH. - Sets a flag for the converter -> No need for formloader then
+            Global.Flag = "3";
+
+            txt_input.Clear();
+            txt_output.Clear();
+
+            // Awesome looking Panel to the left as button marker
+            pnl_nav.Height = TextToBase64.Height;
+            pnl_nav.Top = TextToBase64.Top;
+            pnl_nav.Left = TextToBase64.Left;
+
+            //Changing label -> User can see what exactly now happens
+            label_title.Text = "Text to BASE64";
+
+            //Colorize the world, background button color for idiot proof readability
+            TextToBase64.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void Base64ToText_Click(object sender, EventArgs e)
+        {
+            // I love global variables, OOP..... NAH. - Sets a flag for the converter -> No need for formloader then
+            Global.Flag = "4";
+
+            txt_input.Clear();
+            txt_output.Clear();
+
+            // Awesome looking Panel to the left as button marker
+            pnl_nav.Height = Base64ToText.Height;
+            pnl_nav.Top = Base64ToText.Top;
+            pnl_nav.Left = Base64ToText.Left;
+
+            //Changing label -> User can see what exactly now happens
+            label_title.Text = "BASE64 to Text";
+
+            //Colorize the world, background button color for idiot proof readability
+            Base64ToText.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+
+
+
+
+
+        // Convert Button Press - Depending on what "site" one is one, different event will triggered
         private void btn_convert_Click(object sender, EventArgs e)
         {
 
@@ -252,15 +332,23 @@ namespace HexKonverter
 
             else if (flag == "3")
             {
-                txt_input.Text = "ERROR FLAG 3";
+                texttobase64();
+            }
+            else if (flag == "4")
+            {
+
+                base64totext();
             }
             else
             {
-                txt_input.Text = "ERROR";
+
             }
-            
         }
 
+
+
+
+        // Leave Fokus Events - Button Background change
         private void btn_texttohex_DragLeave(object sender, EventArgs e)
         {
 
@@ -277,8 +365,14 @@ namespace HexKonverter
         }
 
 
+        private void TextToBase64_Leave(object sender, EventArgs e)
+        {
+            TextToBase64.BackColor = Color.FromArgb(24, 30, 54);
+        }
 
-
-
+        private void Base64ToText_Leave(object sender, EventArgs e)
+        {
+            Base64ToText.BackColor = Color.FromArgb(24, 30, 54);
+        }
     }
 }

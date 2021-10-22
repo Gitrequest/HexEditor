@@ -35,8 +35,8 @@ namespace HexKonverter
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.Base64ToText = new System.Windows.Forms.Button();
+            this.TextToBase64 = new System.Windows.Forms.Button();
             this.btn_HexToText = new System.Windows.Forms.Button();
             this.btn_texttohex = new System.Windows.Forms.Button();
             this.pnl_logo = new System.Windows.Forms.Panel();
@@ -55,8 +55,8 @@ namespace HexKonverter
             this.pnl_navbar.Controls.Add(this.button8);
             this.pnl_navbar.Controls.Add(this.button7);
             this.pnl_navbar.Controls.Add(this.button6);
-            this.pnl_navbar.Controls.Add(this.button5);
-            this.pnl_navbar.Controls.Add(this.button4);
+            this.pnl_navbar.Controls.Add(this.Base64ToText);
+            this.pnl_navbar.Controls.Add(this.TextToBase64);
             this.pnl_navbar.Controls.Add(this.btn_HexToText);
             this.pnl_navbar.Controls.Add(this.btn_texttohex);
             this.pnl_navbar.Controls.Add(this.pnl_logo);
@@ -119,35 +119,37 @@ namespace HexKonverter
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Visible = false;
             // 
-            // button5
+            // Base64ToText
             // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button5.ForeColor = System.Drawing.Color.Coral;
-            this.button5.Location = new System.Drawing.Point(0, 253);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(200, 53);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
+            this.Base64ToText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Base64ToText.FlatAppearance.BorderSize = 0;
+            this.Base64ToText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Base64ToText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Base64ToText.ForeColor = System.Drawing.Color.Coral;
+            this.Base64ToText.Location = new System.Drawing.Point(0, 253);
+            this.Base64ToText.Name = "Base64ToText";
+            this.Base64ToText.Size = new System.Drawing.Size(200, 53);
+            this.Base64ToText.TabIndex = 5;
+            this.Base64ToText.Text = "Base64 to Text";
+            this.Base64ToText.UseVisualStyleBackColor = true;
+            this.Base64ToText.Click += new System.EventHandler(this.Base64ToText_Click);
+            this.Base64ToText.Leave += new System.EventHandler(this.Base64ToText_Leave);
             // 
-            // button4
+            // TextToBase64
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.Color.Coral;
-            this.button4.Location = new System.Drawing.Point(0, 200);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(200, 53);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
+            this.TextToBase64.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TextToBase64.FlatAppearance.BorderSize = 0;
+            this.TextToBase64.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TextToBase64.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TextToBase64.ForeColor = System.Drawing.Color.Coral;
+            this.TextToBase64.Location = new System.Drawing.Point(0, 200);
+            this.TextToBase64.Name = "TextToBase64";
+            this.TextToBase64.Size = new System.Drawing.Size(200, 53);
+            this.TextToBase64.TabIndex = 4;
+            this.TextToBase64.Text = "Text to Base64";
+            this.TextToBase64.UseVisualStyleBackColor = true;
+            this.TextToBase64.Click += new System.EventHandler(this.TextToBase64_Click);
+            this.TextToBase64.Leave += new System.EventHandler(this.TextToBase64_Leave);
             // 
             // btn_HexToText
             // 
@@ -196,11 +198,11 @@ namespace HexKonverter
             // 
             this.label_title.AutoSize = true;
             this.label_title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label_title.ForeColor = System.Drawing.Color.Coral;
-            this.label_title.Location = new System.Drawing.Point(12, 37);
+            this.label_title.Location = new System.Drawing.Point(0, 33);
             this.label_title.Name = "label_title";
-            this.label_title.Size = new System.Drawing.Size(163, 31);
+            this.label_title.Size = new System.Drawing.Size(145, 29);
             this.label_title.TabIndex = 1;
             this.label_title.Text = "Text to Hex";
             // 
@@ -271,8 +273,8 @@ namespace HexKonverter
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button Base64ToText;
+        private System.Windows.Forms.Button TextToBase64;
         private System.Windows.Forms.Button btn_HexToText;
         private System.Windows.Forms.Button btn_texttohex;
         private System.Windows.Forms.Panel pnl_logo;
