@@ -501,11 +501,70 @@ namespace HexKonverter
             //
         }
 
+        private void txt_input_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_input_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string flag = Global.Flag;
 
 
+                if (flag == "1")
+                {
+                    TextToHex();
 
+                }
 
+                else if (flag == "2")
+                {
 
+                    HexToText();
+                }
 
+                else if (flag == "3")
+                {
+                    texttobase64();
+                }
+                else if (flag == "4")
+                {
+
+                    base64totext();
+                }
+                else if (flag == "5")
+                {
+                    TextToAscii();
+
+                }
+                else if (flag == "6")
+                {
+                    AsciiToText();
+                }
+                else if (flag == "7")
+                {
+                    TextToBinary();
+                }
+                else if (flag == "8")
+                {
+                    BinaryToText();
+                }
+                else if (flag == "9")
+                {
+
+                }
+                else if (flag == "10")
+                {
+
+                }
+                else
+                {
+                    txt_output.Text = @"ERROR. This should not have happened. ¯\_(ツ)_/¯ ";
+                }
+            }
+        
+        }
     }
 }

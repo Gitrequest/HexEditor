@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "HexKonverter": {
+      "commandName": "Project"
+    },
+    "newProfile1": {
+      "commandName": "Executable"
+    }
+  }
+}

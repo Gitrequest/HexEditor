@@ -273,6 +273,8 @@ namespace HexKonverter
             this.txt_input.Size = new System.Drawing.Size(966, 380);
             this.txt_input.TabIndex = 1;
             this.txt_input.TextChanged += new System.EventHandler(this.txt_input_TextChanged);
+            this.txt_input.Enter += new System.EventHandler(this.txt_input_Enter);
+            this.txt_input.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_input_KeyDown);
             // 
             // txt_output
             // 
